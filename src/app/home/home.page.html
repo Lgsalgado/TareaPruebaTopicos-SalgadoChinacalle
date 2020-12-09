@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      PRUEBA GABRIEL S. & KARLA Ch.
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-list class="ios list-ios hydrated">
+    <ion-list-header class="ios hydrated">
+      <h2>Agenda de Clientes QuickShop</h2>
+    </ion-list-header>
+
+    <ion-item *ngFor="let booking of Bookings" class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="person"></ion-icon> {{booking.name}}
+        </h5>
+        <p>
+          <ion-icon name="call"></ion-icon> {{booking.mobile}}
+        </p>
+        <p>
+          <ion-icon name="mail-outline"></ion-icon> {{booking.email}}
+        </p>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/edit-appointment/', booking.$key]">
+          <ion-icon name="create" style="zoom:2.0" color="primary"></ion-icon>
+          <ion-label>Editar</ion-label>
+        </button>
+        <button ion-button clear (click)="deleteBooking(booking.$key)">
+          <ion-icon name="trash" style="zoom:2.0" color="danger"></ion-icon>
+          <ion-label>Eliminar</ion-label>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
